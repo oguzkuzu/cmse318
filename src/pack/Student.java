@@ -26,9 +26,9 @@ public class Student {
 
 	
 
-	//put your own text path
+	//put your own text path C:\\Users\\kiana\\Documents\\GitHub\\cmse318_workspace/Assignment_1/students.txt 
 
-	File f = new File("C:\\Users\\kiana\\Documents\\GitHub\\cmse318_workspace/Assignment_1/students.txt");
+	File f = new File("C:\\Users\\ABRA\\workspace\\Assignment_1/students.txt");
 
 	private String studentId;
 
@@ -203,7 +203,8 @@ public class Student {
 			writer.flush();
 
 			
-
+			writer.close();
+			
 		} catch (FileNotFoundException e) {
 
 			// TODO: handle exception
@@ -246,7 +247,8 @@ public class Student {
 
 			
 
-			
+			reader.close();
+		
 
 		} catch (Exception e) {
 
