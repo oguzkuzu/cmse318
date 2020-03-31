@@ -65,8 +65,27 @@ public class Student {
 		this.countryOfBirth = countryOfBirth;
 
 	} 
+	  
+	  //empty constructor
+	  public Student() {
 
-	
+
+
+		this.studentId = "0000000";
+
+		this.name = "EMPTY";
+
+		this.lastName = "EMPTY";
+
+		this.birthYear = 0000;
+
+		this.sex = "NULL";
+
+		this.countryOfBirth = "WORLD";
+
+	} 
+
+	  
 
 	
 
@@ -184,8 +203,7 @@ public class Student {
 
 			this.countryOfBirth = countryOfBirth;
 
-
-
+			
 			writer.newLine();
 
 			writer.append(studentId + "          ");
@@ -220,6 +238,65 @@ public class Student {
 		
 
 	}
+	
+	
+	public void saveAndWriteToTheFile(Student st) {
+
+		try { 
+			
+			//Listenin sonunu bul. Ordan itibaren kayýt yap.
+
+			BufferedWriter writer = new BufferedWriter(new  OutputStreamWriter(new FileOutputStream(f)));
+			
+			this.studentId = st.studentId;
+
+			this.name = st.name;
+
+			this.lastName = st.lastName;
+
+			this.birthYear = st.birthYear;
+
+			this.sex = st.sex;
+
+			this.countryOfBirth = st.countryOfBirth;
+
+			
+			// veri yazmaya baslamadan once writer.newLine() yap!!
+			writer.newLine();
+			
+			writer.append(studentId + "          ");
+
+			writer.append(name + "          ");
+
+			writer.append(lastName + "          ");
+
+			writer.append(birthYear + "          ");
+
+			writer.append(sex + "          ");
+
+			writer.append(countryOfBirth);
+
+			writer.flush(); 
+
+			
+			writer.close();
+			
+		} catch (FileNotFoundException e) {
+
+			// TODO: handle exception
+
+		} catch (IOException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
+
+		
+
+	}
+
 
 	public void readFromFile() {
 
@@ -227,20 +304,19 @@ public class Student {
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
 
-			
-
 			String s = reader.readLine();
 
+			System.out.println("Student Data: \n " + s);
 			
-
-			//System.out.println("Student Data: \n " + s);
-
 			
-
 			while (s != null) {
 
 				s = reader.readLine();
-
+				
+				if (s == null) {
+					System.out.println(" \n End of the document");
+				} else		
+				
 				System.out.println("\n " + s);
 
 			}
@@ -253,6 +329,7 @@ public class Student {
 		} catch (Exception e) {
 
 			// TODO: handle exception
+			System.out.println("exception");
 
 		}
 

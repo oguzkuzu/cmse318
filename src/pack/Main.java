@@ -1,30 +1,60 @@
 package pack;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
-
-		// TODO Auto-generated method stub	
-
-	Student studentArray[] = new Student[100];	
-
-	studentArray = initStudents(studentArray);
-	//printAll(studentArray);
-
+		
+		
+	Student st = new Student();
+	List<Student> students = new ArrayList<>();
+	
+	
+	
 	/*
-	 studentArray[0].saveAndWriteToTheFile("17001836", "Ata", "Kuzu", 1994, "M", "MERSIN"); //method works fine! It wrote student.txt file
-	studentArray[0].readFromFile();
+	System.out.println("Now tell me the student info one by one");
 	
-	studentArray[1].saveAndWriteToTheFile("123", "Ata", "Kuzu", 1994, "M", "MERSIN"); //method works fine! It wrote student.txt file
-	studentArray[1].readFromFile();
+	System.out.println("Student ID ? ");
+	Scanner scan = new Scanner(System.in);	
+	st.setstudentId(scan.nextLine());
 	
-	studentArray[2].saveAndWriteToTheFile("445", "Ata", "123", 1234, "M", "123"); //method works fine! It wrote student.txt file
-	studentArray[2].readFromFile(); 
+	System.out.println("Student NAME ? ");	
+	st.setName(scan.nextLine());
+	
+	System.out.println("Student LAST NAME? ");
+	st.setLastName(scan.nextLine());
+	
+	System.out.println("Student BIRTH YEAR ? ");
+	st.setBirthYear(Integer.parseInt(scan.nextLine()));
+	
+	System.out.println("Student SEX?  [M] for male & [F] for female");
+	st.setSex(scan.nextLine());
+	
+	System.out.println("Student COUNTRY OF BIRTH? ");
+	st.setCountryOfBirth(scan.nextLine());
+	
 	*/
+	st.saveAndWriteToTheFile(st);
+	st.saveAndWriteToTheFile(st);
+	st.saveAndWriteToTheFile("a", "a", "a", 1999, "a", "a");
+	st.readFromFile();
 	
 	
+	students.add(st);
 	
+	/* students.forEach(student -> {
+		System.out.println(student.getstudentId() + " " + student.getName() + " " + student.getLastName());
+	});
+
+	
+	st.readFromFile();
+	
+	st.saveAndWriteToTheFile(st);
+	*/
+
 
 	
 	
