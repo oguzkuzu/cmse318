@@ -36,10 +36,13 @@ public class Main {
 	System.out.println("Student COUNTRY OF BIRTH? ");
 	st.setCountryOfBirth(scan.nextLine());
 	
-	*/
+	
 	st.saveAndWriteToTheFile(st);
-	st.saveAndWriteToTheFile(st);
+	st.saveAndWriteToTheFile(st);*/
 	st.saveAndWriteToTheFile("a", "a", "a", 1999, "a", "a");
+	st.saveAndWriteToTheFile("b", "a", "a", 3, "a", "z");
+	st.saveAndWriteToTheFile("c", "a", "a", 4, "a", "y");
+	st.saveAndWriteToTheFile("d", "a", "a", 5, "a", "x");
 	st.readFromFile();
 	
 	

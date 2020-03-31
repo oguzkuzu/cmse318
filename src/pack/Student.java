@@ -11,7 +11,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import java.io.FileOutputStream;
-
 import java.io.IOException;
 
 import java.io.InputStreamReader;
@@ -187,7 +186,7 @@ public class Student {
 			
 			//Listenin sonunu bul. Ordan itibaren kayýt yap.
 
-			BufferedWriter writer = new BufferedWriter(new  OutputStreamWriter(new FileOutputStream(f)));
+			BufferedWriter writer = new BufferedWriter(new  OutputStreamWriter(new FileOutputStream(f,true)));
 
 			
 
@@ -246,8 +245,7 @@ public class Student {
 			
 			//Listenin sonunu bul. Ordan itibaren kayýt yap.
 
-			BufferedWriter writer = new BufferedWriter(new  OutputStreamWriter(new FileOutputStream(f)));
-			
+			BufferedWriter writer = new BufferedWriter(new  OutputStreamWriter(new FileOutputStream(f,true)));
 			this.studentId = st.studentId;
 
 			this.name = st.name;
