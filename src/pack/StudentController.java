@@ -65,7 +65,7 @@ public class StudentController {
 
 		try { 
 			
-			//Listenin sonunu bul. Ordan itibaren kayıt yap.
+			//Listenin sonunu bul. Ordan itibaren kayÃ½t yap.
 
 			
 			BufferedWriter writer = new BufferedWriter(new  OutputStreamWriter(new FileOutputStream(f,true)));
@@ -111,7 +111,7 @@ public class StudentController {
 	
 	public void addStudent(Student[] studentArray, Student st) {
 		
-		int i = getFirstEmptyElement(studentArray);         // #0000 std no'ya sahip ilk elemanı kacinci indexte onu aldik.
+		int i = getFirstEmptyElement(studentArray);         // #0000 std no'ya sahip ilk elemanÃ½ kacinci indexte onu aldik.
 		
 		
 		// indexi biliyoruz. st objesindeki degerleri dizideki o indexe kaydedelim.
@@ -165,28 +165,7 @@ public class StudentController {
 
 	}
 
-/*
-	private Student studentArrayToStudentObject(Student[] studentArray) {
-		Student st = new Student();
-		for(int i=0; i < studentArray.length;i++) {
-			if(studentArray[i].getstudentId() == "0000") {
-				System.out.println("We find it its " + i + ". element has first 0000 value");
-				st.setstudentId(studentArray[i].getstudentId());
-				st.setName(studentArray[i].getName());
-				st.setLastName(studentArray[i].getLastName());
-				st.setBirthYear(studentArray[i].getBirthYear());
-				st.setSex(studentArray[i].getSex());
-				st.setCountryOfBirth(studentArray[i].getCountryOfBirth());
-				break;
-			} else {
-				System.out.println("#" + i + ". attempt.. ");
-				System.out.println("There's no one who has #0000 stdID");
-			}			
-		}
-		return st; 		
-	}
 
-*/
 	public void readFromFile() {
 
 		try {
@@ -270,15 +249,15 @@ public class StudentController {
 	
 	public String findContemporaryStudents (int birthYear) {
 		
-		// aynı yaştakileri bul
+		// aynÃ½ yaÃ¾takileri bul
 		return null;
 	}
 
 	public void modifyStudentRecord(String studentId, String choice) {
 		//studentId al + neyi editleyecekse onu al
 		// switch case ile 
-		/* case: "1" -> Id değiştir
-		 * "2" -> ad değiştir.
+		/* case: "1" -> Id deÃ°iÃ¾tir
+		 * "2" -> ad deÃ°iÃ¾tir.
 		 * 
 		 */
 	}
@@ -291,7 +270,7 @@ public class StudentController {
 
 	public int getFirstEmptyElement(Student[] studentArray) {
 		int i;
-		System.out.println("Yeni array sistemine hoş geldin");
+		System.out.println("Yeni array sistemine hoÃ¾ geldin");
 		
 		// 00000000 olan ilk satiri bulup addStudent methoduna gonderecegiz.
 		
