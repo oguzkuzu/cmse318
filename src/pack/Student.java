@@ -71,7 +71,7 @@ public class Student {
 	  //empty constructor
 	  public Student() {
 		  
-		this.studentId = "0000000";
+		this.studentId = "00000000";
 
 		this.name = "EMPTY";
 
