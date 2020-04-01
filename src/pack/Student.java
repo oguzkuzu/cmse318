@@ -26,9 +26,10 @@ public class Student {
 
 	
 
-	//put your own text path C:\\Users\\kiana\\Documents\\GitHub\\cmse318_workspace/Assignment_1/students.txt 
+	//put your own text path C:\\Users\\ABRA\\workspace\\Assignment_1/students.txt
+	 
 
-	File f = new File("C:\\Users\\ABRA\\workspace\\Assignment_1/students.txt");
+	File f = new File("C:\\Users\\kiana\\Documents\\GitHub\\cmse318/students.txt");
 
 	private String studentId;
 
@@ -224,11 +225,11 @@ public class Student {
 			writer.close();
 			
 		} catch (FileNotFoundException e) {
+			
 
 			// TODO: handle exception
 
 		} catch (IOException e) {
-
 			// TODO Auto-generated catch block
 
 			e.printStackTrace();
@@ -282,13 +283,11 @@ public class Student {
 			writer.close();
 			
 		} catch (FileNotFoundException e) {
-
 			// TODO: handle exception
 
 		} catch (IOException e) {
 
 			// TODO Auto-generated catch block
-
 			e.printStackTrace();
 
 		}
@@ -329,7 +328,8 @@ public class Student {
 		} catch (Exception e) {
 
 			// TODO: handle exception
-			System.out.println("exception");
+			System.out.println("readFromFile() method exception");
+			System.out.println(e);
 
 		}
 

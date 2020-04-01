@@ -9,12 +9,18 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
+		
+	
+		
+	// kiana github commit test!	
+		
+		
 	Student st = new Student();
 	List<Student> students = new ArrayList<>();
 	
 	
 	
-	/*
+	
 	System.out.println("Now tell me the student info one by one");
 	
 	System.out.println("Student ID ? ");
@@ -36,16 +42,15 @@ public class Main {
 	System.out.println("Student COUNTRY OF BIRTH? ");
 	st.setCountryOfBirth(scan.nextLine());
 	
-	*/
+	
 	st.saveAndWriteToTheFile(st);
-	st.saveAndWriteToTheFile(st);
-	st.saveAndWriteToTheFile("a", "a", "a", 1999, "a", "a");
+	
 	st.readFromFile();
 	
 	
 	students.add(st);
 	
-	/* students.forEach(student -> {
+	 students.forEach(student -> {
 		System.out.println(student.getstudentId() + " " + student.getName() + " " + student.getLastName());
 	});
 
@@ -53,9 +58,9 @@ public class Main {
 	st.readFromFile();
 	
 	st.saveAndWriteToTheFile(st);
-	*/
+	
 
-
+	
 	
 	
 	
