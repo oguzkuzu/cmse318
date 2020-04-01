@@ -65,7 +65,7 @@ public class StudentController {
 
 		try { 
 			
-			//Listenin sonunu bul. Ordan itibaren kayýt yap.
+
 
 			
 			BufferedWriter writer = new BufferedWriter(new  OutputStreamWriter(new FileOutputStream(f,true)));
@@ -111,9 +111,11 @@ public class StudentController {
 	
 	public void addStudent(Student[] studentArray, Student st) {
 		
+
 		System.out.println("\n Add student called");
 		
 		int i = getFirstEmptyElement(studentArray);         // #0000 std no'ya sahip ilk elemaný kacinci indexte onu aldik.
+
 		
 		
 		// indexi biliyoruz. st objesindeki degerleri dizideki o indexe kaydedelim.
@@ -167,65 +169,40 @@ public class StudentController {
 
 	}
 
+
 	
 	public void readFromFile() {
 
 		System.out.println("\n Read from text file method running....");
 		
-		try {
 
-			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
 
-			String s = reader.readLine();
-
-			System.out.println("Student Data: \n " + s);
-			
-			
-			while (s != null) {
-
-				s = reader.readLine();
-				
-				if (s == null) {
-					System.out.println(" \n End of the document \n");
-				} else		
-				
-				System.out.println("\n " + s);
-
-			}
-
-			
-
-			reader.close();
-		
-
-		} catch (Exception e) {
-
-			// TODO: handle exception
-			System.out.println("exception");
-
-		}
-
-	}
 	
 	
 	
 	// Maindeki students -> bir arraylist veya list. ama st tek bir students objesi.  
+
 	public String findByStudentId() {
 		
 		return null;
+
 	}
 	
 	public String findContemporaryStudents (int birthYear) {
 		
+
 		// ayný yaþtakileri bul
+
 		return null;
 	}
 
 	public void modifyStudentRecord(String studentId, String choice) {
 		//studentId al + neyi editleyecekse onu al
 		// switch case ile 
+
 		/* case: "1" -> Id deðiþtir
 		 * "2" -> ad deðiþtir.
+
 		 * 
 		 */
 	}
@@ -239,18 +216,19 @@ public class StudentController {
 	public int getFirstEmptyElement(Student[] studentArray) {
 		int i;
 		System.out.println("\n Get first empty element method running...");
+
 		
 		// 00000000 olan ilk satiri bulup addStudent methoduna gonderecegiz.
 		
 		for(i=0; i < studentArray.length+1;i++) {
 			if(studentArray[i].getstudentId() == "00000000") {
+
 				System.out.println("\n We find first #00000000 stdID in " + i + ". element");	
 				System.out.println("\n New data will be writed on the #" + i + ". index");
+
 				return i;
 			}
 		}
-		
-		
 		return i;
 	}
 	
@@ -263,6 +241,7 @@ public class StudentController {
 		}
 	}
 
+
 	
 	
 	// we should synchronize the text file and the studentArray!!!
@@ -270,5 +249,5 @@ public class StudentController {
 	public void syncFileAndArray(Student st, Student[] studentArray) {
 		
 	}
-	
+
 }
