@@ -1,4 +1,4 @@
-package pack;
+package pack.model;
 
 import java.io.BufferedReader;
 
@@ -20,15 +20,10 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
 public class Student {
 
-	
-
-	//put your own text path C:\\Users\\kiana\\Documents\\GitHub\\cmse318_workspace/Assignment_1/students.txt 
+	// put your own text path
+	// C:\\Users\\kiana\\Documents\\GitHub\\cmse318_workspace/Assignment_1/students.txt
 
 	File f = new File("C:\\Users\\ABRA\\workspace\\Assignment_1/students.txt");
 
@@ -44,15 +39,9 @@ public class Student {
 
 	private String countryOfBirth;
 
-
-
-	
-		
-	  public Student(String studentId, String name, String lastName, int birthYear, String sex,
+	public Student(String studentId, String name, String lastName, int birthYear, String sex,
 
 			String countryOfBirth) {
-
-
 
 		this.studentId = studentId;
 
@@ -66,11 +55,11 @@ public class Student {
 
 		this.countryOfBirth = countryOfBirth;
 
-	} 
-	  
-	  //empty constructor
-	  public Student() {
-		  
+	}
+
+	// empty constructor
+	public Student() {
+
 		this.studentId = "00000000";
 
 		this.name = "EMPTY";
@@ -83,14 +72,10 @@ public class Student {
 
 		this.countryOfBirth = "WORLD";
 
-	} 
-
-	  
-
-	
+	}
 
 	// Getters
-	String getstudentId() {
+	public String getstudentId() {
 
 		// TODO Auto-generated method stub
 
@@ -98,7 +83,7 @@ public class Student {
 
 	}
 
-	String getName() {
+	public String getName() {
 
 		// TODO Auto-generated method stub
 
@@ -106,7 +91,7 @@ public class Student {
 
 	}
 
-	String getLastName() {
+	public String getLastName() {
 
 		// TODO Auto-generated method stub
 
@@ -114,7 +99,7 @@ public class Student {
 
 	}
 
-	int getBirthYear() {
+	public int getBirthYear() {
 
 		// TODO Auto-generated method stub
 
@@ -122,7 +107,7 @@ public class Student {
 
 	}
 
-	String getSex() {
+	public String getSex() {
 
 		// TODO Auto-generated method stub
 
@@ -130,7 +115,7 @@ public class Student {
 
 	}
 
-	String getCountryOfBirth() {
+	public String getCountryOfBirth() {
 
 		// TODO Auto-generated method stub
 
@@ -138,48 +123,41 @@ public class Student {
 
 	}
 
-	
 	// Setters
-	void setstudentId(String studentId) {
+	public void setstudentId(String studentId) {
 
 		this.studentId = studentId;
 
 	}
 
-	void setName(String name) {
+	public void setName(String name) {
 
 		this.name = name;
 
 	}
 
-	void setLastName(String lastName) {
+	public void setLastName(String lastName) {
 
 		this.lastName = lastName;
 
 	}
 
-	void setBirthYear(int birthYear) {
+	public void setBirthYear(int birthYear) {
 
 		this.birthYear = birthYear;
 
 	}
 
-	void setSex(String sex) {
+	public void setSex(String sex) {
 
 		this.sex = sex;
 
 	}
 
-	void setCountryOfBirth(String countryOfBirth) {
+	public void setCountryOfBirth(String countryOfBirth) {
 
 		this.countryOfBirth = countryOfBirth;
 
 	}
-
-
-
-
-	
-	
 
 }
