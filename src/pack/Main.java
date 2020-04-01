@@ -10,13 +10,20 @@ public class Main {
 		
 		
 	Student st = new Student();
-	List<Student> students = new ArrayList<>();
+	StudentController studentController = new StudentController(st);
+	ArrayList<Student> students = new ArrayList<>();
+	Student studentArray[] = new Student[100];
 	
+	//initialize
+	initialize(studentArray);
 	
+	//dolduracaðýmýz zaman içerideki fonksiyonda if stdId == "0000" ise diyip sonra yazdýrcaz bam bam
+	// gönderirkende findstdbyid(studentArray, stdId)
+	studentController.addStudentToArray(studentArray,"17001836");
 	
-	/*
+	// st objesinin ozelliklerini scanner ile alip st adli Student objesini dolduralim.
 	System.out.println("Now tell me the student info one by one");
-	
+
 	System.out.println("Student ID ? ");
 	Scanner scan = new Scanner(System.in);	
 	st.setstudentId(scan.nextLine());
@@ -37,39 +44,42 @@ public class Main {
 	st.setCountryOfBirth(scan.nextLine());
 	
 	
-	st.saveAndWriteToTheFile(st);
-	st.saveAndWriteToTheFile(st);*/
-	st.saveAndWriteToTheFile("a", "a", "a", 1999, "a", "a");
-	st.saveAndWriteToTheFile("b", "a", "a", 3, "a", "z");
-	st.saveAndWriteToTheFile("c", "a", "a", 4, "a", "y");
-	st.saveAndWriteToTheFile("d", "a", "a", 5, "a", "x");
-	st.readFromFile();
+	// oluþturduðumuz st objesini dosyaya yazmasý için controller'daki add studenti çaðýrdýk
+		studentController.addStudent(st);
+		
+	/*
+	System.out.println("Write the id of student that you're looking for?");
+	studentController.findByStudentId(students, scan.nextLine());
+	*/
 	
 	
-	students.add(st);
+	
+	
+	// yazmýþ mý bakalým
+	//studentController.readFromFile();
+	
+	
 	
 	/* students.forEach(student -> {
 		System.out.println(student.getstudentId() + " " + student.getName() + " " + student.getLastName());
 	});
 
-	
-	st.readFromFile();
-	
-	st.saveAndWriteToTheFile(st);
 	*/
-
-
-	
-	
 	
 }
 	
+	private static void initialize(Student studentArray[]) {
+		for(int i = 0; i < 100; i++) {
+			studentArray[i] = new Student();
+		}
+	}
+
 	// menu();
 	public static void Menu(Student[] s) {
 		
 		System.out.println(" 0 Öðrenci Numarasý ile ara.  1 \n Öðrenci silmek icin 2 \n Arama yapmak icin 3 ");
 		//scannerla oku
-		s[0].findByStudentId("17001836");
+		//s[0].findByStudentId("17001836");
 		
 		
 		//switch-case 
