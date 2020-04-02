@@ -19,21 +19,28 @@ public class Main {
 		studentController.initialize(studentArray);
 
 		// dosyadaki veriler ile studentArray verilerini eþitlememiz lazým.
-		studentController.syncFileAndArray(st, studentArray);
+		studentArray = studentController.syncFileAndArray(st, studentArray); // esitledik ve bize text dosyasindaki
+																				// bilgileri array olarak dondurdu
 
 		st = studentController.scanInformationAndCreateTheStudentObject(st); // st returned.
 		studentController.addStudent(studentArray, st); // st objesi hem diziye hem de txt dosyasina yazilacak.
 
-		// Let's read the txt file and the studentArray
-		studentController.readFromFile();
-		studentController.readArray(studentArray);
-
+		
+		
+		// Let's read the txt file and the studentArray if they are equal.
+		 
+		// Reads the text file
+		// studentController.readFromFile(); studentController.readArray(studentArray);
+		 
+		
+		//Reads the studentArray
+		//studentController.readArray(studentArray);
 	}
 
 	// menu();
 	public static void Menu(Student[] s) {
 
-		System.out.println(" 0 Öðrenci Numarasý ile ara.  1 \n Öðrenci silmek icin 2 \n Arama yapmak icin 3 ");
+		System.out.println(" 0 Ogrenci no ile ara.  1 \n Ogrenci silmek icin 2 \n Arama yapmak icin 3 ");
 		// scannerla oku
 		// s[0].findByStudentId("17001836");
 
@@ -43,22 +50,6 @@ public class Main {
 		// case 2: bunu yap
 
 		// default: tekrar menüyü göster
-
-	}
-
-	// write to console
-
-	public static void printAll(Student[] s) {
-
-		Student[] a = s;
-
-		for (int i = 0; i < 100; i++) {
-
-			System.out.print(a[i].getName());
-			System.out.print(a[i].getLastName());
-			System.out.println("");
-
-		}
 
 	}
 

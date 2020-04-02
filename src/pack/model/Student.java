@@ -33,13 +33,13 @@ public class Student {
 
 	private String lastName;
 
-	private int birthYear;
+	private String birthYear;
 
 	private String sex;
 
 	private String countryOfBirth;
 
-	public Student(String studentId, String name, String lastName, int birthYear, String sex,
+	public Student(String studentId, String name, String lastName, String birthYear, String sex,
 
 			String countryOfBirth) {
 
@@ -66,7 +66,7 @@ public class Student {
 
 		this.lastName = "EMPTY";
 
-		this.birthYear = 0000;
+		this.birthYear = "0000";
 
 		this.sex = "NULL";
 
@@ -99,7 +99,7 @@ public class Student {
 
 	}
 
-	public int getBirthYear() {
+	public String getBirthYear() {
 
 		// TODO Auto-generated method stub
 
@@ -142,7 +142,7 @@ public class Student {
 
 	}
 
-	public void setBirthYear(int birthYear) {
+	public void setBirthYear(String birthYear) {
 
 		this.birthYear = birthYear;
 

@@ -6,9 +6,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -47,7 +52,7 @@ public class StudentController {
 		st.setLastName(scan.nextLine());
 
 		System.out.println("Student BIRTH YEAR ? ");
-		st.setBirthYear(Integer.parseInt(scan.nextLine()));
+		st.setBirthYear((scan.nextLine()));
 
 		System.out.println("Student SEX?  [M] for male & [F] for female");
 		st.setSex(scan.nextLine());
@@ -118,9 +123,8 @@ public class StudentController {
 			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f, true)));
 
 			// veri yazmaya baslamadan once writer.newLine() yap!!
-			writer.newLine();
 
-			writer.append(st.getstudentId() + "          ");
+			writer.append(" \n" + st.getstudentId() + "          ");
 
 			writer.append(st.getName() + "          ");
 
@@ -153,6 +157,34 @@ public class StudentController {
 	public void readFromFile() {
 
 		System.out.println("\n Read from text file method running....");
+		try {
+
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+
+			String s = reader.readLine();
+
+			System.out.println("Student Data: \n " + s);
+
+			while (s != null) {
+
+				s = reader.readLine();
+
+				if (s == null) {
+					System.out.println(" \n End of the document \n");
+				} else
+
+					System.out.println("\n " + s);
+
+			}
+
+			reader.close();
+
+		} catch (Exception e) {
+
+			// TODO: handle exception
+			System.out.println("exception");
+
+		}
 
 	}
 
@@ -206,16 +238,72 @@ public class StudentController {
 	}
 
 	public void readArray(Student[] studentArray) {
-		System.out.println("#" + "  Student ID     " + "Name      " + "Last Name    " + " ");
+		System.out.println(
+				"#" + "  Student ID     " + "Name     " + "Last Name    " + "Birth   " + " Sex    " + "Country ");
 		for (int i = 0; i < studentArray.length; i++) {
 			System.out.println("#" + i + "  " + studentArray[i].getstudentId() + "     " + studentArray[i].getName()
-					+ "     " + studentArray[i].getLastName());
+					+ "       " + studentArray[i].getLastName() + "       " + studentArray[i].getBirthYear() + "       "
+					+ studentArray[i].getSex() + "       " + studentArray[i].getCountryOfBirth());
 		}
 	}
 
-	// we should synchronize the text file and the studentArray!!!
-	public void syncFileAndArray(Student st, Student[] studentArray) {
+	// we should synchronize the text file and the studentArray at the beginning!!!
+	public Student[] syncFileAndArray(Student st, Student[] studentArray) {
+		int i = 0;
+		try {
+
+			BufferedReader reader = new BufferedReader(new FileReader(f));
+			String[] str;
+			String[] studentId = new String[100];
+			String fullString = "";
+			String split = "          ";
+			
+			Path path = Paths.get("./students.txt");      //Here we get the line count of the text file. 
+			long lineCount = Files.lines(path ).count();
+			
+			while ((fullString = reader.readLine()) != null) {
+
+				for (i = 0; i < lineCount-1; i++) {      // lineCount used as loop condition
+
+//					System.out.println("\n *******");
+//					System.out.println("i is: " + i + "\n");
+
+					fullString = reader.readLine();
+
+					// Tüm satýr elimizde -> 17001836 Ata Kuzu 1994 m mersin
+					// Boþluklardan ayrýþtýrýp str dizisine geçirelim.
+					str = fullString.split(split, 6);
+
+					for (int j = 0; j < 6; j++) {
+						//System.out.println("#" + str[j]);  Anlýk satýr bilgilerini yazýyor.
+						switch (j) {
+						case 0:
+							studentArray[i].setstudentId(str[j]);
+						case 1:
+							studentArray[i].setName(str[j]);
+						case 2:
+							studentArray[i].setLastName(str[j]);
+						case 3:
+							studentArray[i].setBirthYear(str[j]);
+						case 4:
+							studentArray[i].setSex(str[j]);
+						case 5:
+							studentArray[i].setCountryOfBirth(str[j]);
+						}
+					}
+
+				}
+			}
+			reader.close();
+
+		} catch (Exception e) {
+
+			// TODO: handle exception
+			System.out.println("exception");
+			System.out.println(e);
+
+		}
+		return studentArray;
 
 	}
-
 }
