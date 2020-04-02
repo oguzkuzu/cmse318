@@ -6,15 +6,18 @@ import java.util.Scanner;
 
 import pack.controller.StudentController;
 import pack.model.Student;
+import pack.view.View;
 
 public class Main {
 
 	public static void main(String[] args) {
-
+		
+		
 		Student studentArray[] = new Student[100];
 		Student st = new Student();
 		StudentController studentController = new StudentController(studentArray);
-
+		View view = new View(studentController);
+		
 		// initialize the elements of the array
 		studentController.initialize(studentArray);
 
@@ -22,8 +25,8 @@ public class Main {
 		studentArray = studentController.syncFileAndArray(st, studentArray); // esitledik ve bize text dosyasindaki
 																				// bilgileri array olarak dondurdu
 
-		st = studentController.scanInformationAndCreateTheStudentObject(st); // st returned.
-		studentController.addStudent(studentArray, st); // st objesi hem diziye hem de txt dosyasina yazilacak.
+		 // st returned.
+		//studentController.addStudent(studentArray, st); // st objesi hem diziye hem de txt dosyasina yazilacak.
 
 		
 		
@@ -35,22 +38,11 @@ public class Main {
 		
 		//Reads the studentArray
 		//studentController.readArray(studentArray);
+		
+		
+		View.Menu(st, studentArray);
 	}
 
-	// menu();
-	public static void Menu(Student[] s) {
-
-		System.out.println(" 0 Ogrenci no ile ara.  1 \n Ogrenci silmek icin 2 \n Arama yapmak icin 3 ");
-		// scannerla oku
-		// s[0].findByStudentId("17001836");
-
-		// switch-case
-
-		// case 1: þunu yap
-		// case 2: bunu yap
-
-		// default: tekrar menüyü göster
-
-	}
+	
 
 }

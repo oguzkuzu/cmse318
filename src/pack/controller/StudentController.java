@@ -15,18 +15,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import pack.model.Student;
+import pack.view.View;
 
 public class StudentController {
 
 	File f = new File("C:\\Users\\ABRA\\workspace\\Assignment_1/students.txt");
+
 	private Student[] studentArray;
 
 	// constructor
 	public StudentController(Student[] studentArray) {
 		this.studentArray = studentArray;
+
 	}
 
 	public void initialize(Student studentArray[]) {
@@ -63,46 +67,50 @@ public class StudentController {
 		return st;
 	}
 
-	public void addStudent(String studentId, String name, String lastName, int birthYear, String sex,
-
-			String countryOfBirth) {
-
-		try {
-
-			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f, true)));
-
-			writer.newLine();
-
-			writer.append(studentId + "          ");
-
-			writer.append(name + "          ");
-
-			writer.append(lastName + "          ");
-
-			writer.append(birthYear + "          ");
-
-			writer.append(sex + "          ");
-
-			writer.append(countryOfBirth + "          ");
-
-			writer.flush();
-
-			writer.close();
-
-		} catch (FileNotFoundException e) {
-
-			// TODO: handle exception
-
-		} catch (IOException e) {
-
-			// TODO Auto-generated catch block
-
-			e.printStackTrace();
-
-		}
-
-	}
-
+	/*
+	 * 
+	 * public void addStudent(String studentId, String name, String lastName, int
+	 * birthYear, String sex,
+	 * 
+	 * String countryOfBirth) {
+	 * 
+	 * try {
+	 * 
+	 * BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new
+	 * FileOutputStream(f, true)));
+	 * 
+	 * writer.newLine();
+	 * 
+	 * writer.append(studentId + "          ");
+	 * 
+	 * writer.append(name + "          ");
+	 * 
+	 * writer.append(lastName + "          ");
+	 * 
+	 * writer.append(birthYear + "          ");
+	 * 
+	 * writer.append(sex + "          ");
+	 * 
+	 * writer.append(countryOfBirth + "          ");
+	 * 
+	 * writer.flush();
+	 * 
+	 * writer.close();
+	 * 
+	 * } catch (FileNotFoundException e) {
+	 * 
+	 * // TODO: handle exception
+	 * 
+	 * } catch (IOException e) {
+	 * 
+	 * // TODO Auto-generated catch block
+	 * 
+	 * e.printStackTrace();
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 	public void addStudent(Student[] studentArray, Student st) {
 
 		System.out.println("\n Add student called");
@@ -151,7 +159,9 @@ public class StudentController {
 			e.printStackTrace();
 
 		}
-
+		System.out.println("Student added successfully! \n");
+		System.out.println("You're returning to menu....\n ");
+		View.Menu(st, studentArray);
 	}
 
 	public void readFromFile() {
@@ -188,19 +198,119 @@ public class StudentController {
 
 	}
 
-	// Maindeki students -> bir arraylist veya list. ama st tek bir students objesi.
+	public String findByStudentId(String studentId) {
 
-	public String findByStudentId() {
+		int i = 0;
+		try {
 
-		return null;
+			BufferedReader reader = new BufferedReader(new FileReader(f));
+			String[] str;
+			String fullString = "";
+			String split = "          ";
 
+			Path path = Paths.get("./students.txt"); // Here we get the line count of the text file.
+			long lineCount = Files.lines(path).count();
+
+			while ((fullString = reader.readLine()) != null) {
+
+				for (i = 0; i < lineCount - 1; i++) { // lineCount used as loop condition
+
+					fullString = reader.readLine();
+
+					// Tüm satýr elimizde -> 17001836 Ata Kuzu 1994 m mersin
+
+					str = fullString.split(split, 6);
+
+					// System.out.println(Arrays.toString(str));
+
+					for (int j = 0; j < 6; j++) {
+						// System.out.println("#" + str[j]); Anlýk satýr bilgilerini yazýyor.
+
+						if (str[j].contains(studentId)) {
+							System.out.println("STUDENT FOUND!!!");
+							switch (j) {
+							case 0:
+								System.out.print("[" + studentArray[i].getstudentId() + "]");
+							case 1:
+								System.out.print("          " + studentArray[i].getName());
+							case 2:
+								System.out.print("          " + studentArray[i].getLastName());
+							case 3:
+								System.out.print("          " + studentArray[i].getBirthYear());
+							case 4:
+								System.out.print("          " + studentArray[i].getSex());
+							case 5:
+								System.out.print("          " + studentArray[i].getCountryOfBirth());
+							}
+						} else {
+							System.out.println("."); // if didnt satisfy so I put "." instead of student info
+						}
+					}
+				}
+			}
+			reader.close();
+
+		} catch (Exception e) {
+
+			// TODO: handle exception
+			System.out.println("exception");
+			System.out.println(e);
+
+		}
+		return "Search by student ID done!!!";
 	}
 
-	public String findContemporaryStudents(int birthYear) {
+	public String findContemporaryStudents(CharSequence birthYear) {
+		int i = 0;
+		try {
 
-		// ayný yaþtakileri bul
+			BufferedReader reader = new BufferedReader(new FileReader(f));
+			String[] str;
+			String fullString = "";
+			String split = "          ";
 
-		return null;
+			Path path = Paths.get("./students.txt"); // Here we get the line count of the text file.
+			long lineCount = Files.lines(path).count();
+
+			while ((fullString = reader.readLine()) != null) {
+
+				for (i = 0; i < lineCount - 1; i++) { // lineCount used as loop condition
+
+					fullString = reader.readLine();
+
+					// Tüm satýr elimizde -> 17001836 Ata Kuzu 1994 m mersin
+
+					str = fullString.split(split, 6);
+
+					// System.out.println(Arrays.toString(str));
+
+					for (int j = 0; j < 6; j++) {
+						// System.out.println("#" + str[j]); Anlýk satýr bilgilerini yazýyor.
+
+						if (str[j].contains(birthYear)) {
+							System.out.println("STUDENT FOUND!!!");
+									System.out.print(studentArray[i].getstudentId());
+									System.out.print("          " + studentArray[i].getName());
+									System.out.print("          " + studentArray[i].getLastName());
+									System.out.print("          " + "[" + studentArray[i].getBirthYear() + "]");
+									System.out.print("          " + studentArray[i].getSex());
+									System.out.print("          " + studentArray[i].getCountryOfBirth());
+						} else {
+							System.out.println("."); // if didnt satisfy so I put "." instead of student info
+						}
+					}
+				}
+			}
+			reader.close();
+
+		} catch (Exception e) {
+
+			// TODO: handle exception
+			System.out.println("exception");
+			System.out.println(e);
+
+		}
+		return "";
 	}
 
 	public void modifyStudentRecord(String studentId, String choice) {
@@ -257,13 +367,13 @@ public class StudentController {
 			String[] studentId = new String[100];
 			String fullString = "";
 			String split = "          ";
-			
-			Path path = Paths.get("./students.txt");      //Here we get the line count of the text file. 
-			long lineCount = Files.lines(path ).count();
-			
+
+			Path path = Paths.get("./students.txt"); // Here we get the line count of the text file.
+			long lineCount = Files.lines(path).count();
+
 			while ((fullString = reader.readLine()) != null) {
 
-				for (i = 0; i < lineCount-1; i++) {      // lineCount used as loop condition
+				for (i = 0; i < lineCount - 1; i++) { // lineCount used as loop condition
 
 //					System.out.println("\n *******");
 //					System.out.println("i is: " + i + "\n");
@@ -275,7 +385,7 @@ public class StudentController {
 					str = fullString.split(split, 6);
 
 					for (int j = 0; j < 6; j++) {
-						//System.out.println("#" + str[j]);  Anlýk satýr bilgilerini yazýyor.
+						// System.out.println("#" + str[j]); Anlýk satýr bilgilerini yazýyor.
 						switch (j) {
 						case 0:
 							studentArray[i].setstudentId(str[j]);
