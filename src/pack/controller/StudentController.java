@@ -198,7 +198,7 @@ public class StudentController {
 
 	}
 
-	public String findByStudentId(String studentId) {
+	public String findByStudentId(Student st, String studentId) {
 
 		int i = 0;
 		try {
@@ -226,8 +226,8 @@ public class StudentController {
 					for (int j = 0; j < 6; j++) {
 						// System.out.println("#" + str[j]); Anlýk satýr bilgilerini yazýyor.
 
-						if (str[j].contains(studentId)) {
-							System.out.println("STUDENT FOUND!!!");
+						if (str[j].contentEquals(studentId)) {
+							System.out.println("");
 							switch (j) {
 							case 0:
 								System.out.print("[" + studentArray[i].getstudentId() + "]");
@@ -257,10 +257,12 @@ public class StudentController {
 			System.out.println(e);
 
 		}
-		return "Search by student ID done!!!";
+		System.out.println("\n You're returning to menu....\n ");
+		View.Menu(st, studentArray);
+		return "";
 	}
 
-	public String findContemporaryStudents(CharSequence birthYear) {
+	public String findContemporaryStudents(Student st, CharSequence birthYear) {
 		int i = 0;
 		try {
 
@@ -288,7 +290,7 @@ public class StudentController {
 						// System.out.println("#" + str[j]); Anlýk satýr bilgilerini yazýyor.
 
 						if (str[j].contains(birthYear)) {
-							System.out.println("STUDENT FOUND!!!");
+									System.out.println("");
 									System.out.print(studentArray[i].getstudentId());
 									System.out.print("          " + studentArray[i].getName());
 									System.out.print("          " + studentArray[i].getLastName());
@@ -296,7 +298,7 @@ public class StudentController {
 									System.out.print("          " + studentArray[i].getSex());
 									System.out.print("          " + studentArray[i].getCountryOfBirth());
 						} else {
-							System.out.println("."); // if didnt satisfy so I put "." instead of student info
+							//System.out.println("."); // if didnt satisfy so I put "." instead of student info
 						}
 					}
 				}
@@ -310,6 +312,8 @@ public class StudentController {
 			System.out.println(e);
 
 		}
+		System.out.println(" \n You're returning to menu....\n ");
+		View.Menu(st, studentArray);
 		return "";
 	}
 

@@ -32,4 +32,9 @@
 160005          Deniz          Golbas          1234          m          tr
 1500566          ahmet          fisfk          123          m          kktc
 17001836          Ata          Kuzu          1994          m          mersin
-160005          Deniz          Golbas          1234          m          tr
+160005          Deniz          Golbas          1234          m          tr 
+17001836          og          kush          12344          m          tr 
+420420          snoop          dog          1888          m          tr 
+420          og          kush          420          m          trnc 
+17001836          marilyn          monroe          1994          f          usa 
+1788188          ata          og          1994          m          mer
