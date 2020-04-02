@@ -243,7 +243,7 @@ public class StudentController {
 								System.out.print("          " + studentArray[i].getCountryOfBirth());
 							}
 						} else {
-							System.out.println("."); // if didnt satisfy so I put "." instead of student info
+							//System.out.println("."); // if didnt satisfy so I put "." instead of student info
 						}
 					}
 				}
