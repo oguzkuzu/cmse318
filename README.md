@@ -1,5 +1,6 @@
-# Assignment_1
- Cmse 318
+# Cmse318 Assignment_1
+
  
- Ata Oguz Kuzu
- Kiana Kamkar
+ Ata Oguz Kuzu 17001836
+ 
+ Kiana Kamkar 17701884
