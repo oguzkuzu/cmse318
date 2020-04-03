@@ -1,4 +1,3 @@
-
 160005          Deniz          Golbas          1234          m          tr
 1500566          ahmet          fisfk          123          m          kktc
 160005          Deniz          Golbas          1234          m          tr
@@ -6,9 +5,8 @@
 17001836          Ata          Kuzu          1994          m          mersin
 160005          Deniz          Golbas          1234          m          tr
 1500566          ahmet          fisfk          123          m          kktc
-170018136          Ata          Kuzu          1994          m          mersin
 160005          Deniz          Golbas          1234          m          tr
 1500566          ahmet          fisfk          123          m          kktc
-420420          snoop          dogg          1998          m          trnc 
-17001836          marilyn          monroe          1998          f          usa 
-170101836          Ata          Kuzu          1994          m          mersin
+17001836          asd          bcd          1994          m          tr 
+17701884          kiana          kamkar          1999          F          Iran 
+17701884          kiana          kamkar          1999          f          iran
